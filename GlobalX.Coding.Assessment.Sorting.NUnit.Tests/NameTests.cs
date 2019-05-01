@@ -1,26 +1,25 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using System;
 
-namespace GlobalX.Coding.Assessment.Sorting.Tests
+namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 {
-    [TestClass()]
+
+    [TestFixture]
     public class NameTests
     {
-        [TestMethod()]
-        [ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void Name_Construction_AurgumentException_1_Name()
         {
-            var name = new Name("Simon");
+            Assert.Throws<ArgumentException>(() => new Name("Simon"));
         }
 
-        [TestMethod()]
-        [ExpectedException(typeof(ArgumentException))]
+        [Test]
         public void Name_Construction_AurgumentException_5_Names()
         {
-            var name = new Name("Simon David Stephen Porcella Le Serve");
+            Assert.Throws<ArgumentException>(() => new Name("Simon David Stephen Porcella Le Serve"));
         }
 
-        [TestMethod()]
+        [Test]
         public void Name_CompareTo_2_And_3_Names()
         {
             var name1 = new Name("Simon LeServe");
@@ -31,7 +30,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Tests
             Assert.AreEqual(target, -1);
         }
 
-        [TestMethod()]
+        [Test]
         public void Name_CompareTo_Different_Given_Names()
         {
             var name1 = new Name("Simon LeServe");

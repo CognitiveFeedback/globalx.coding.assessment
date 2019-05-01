@@ -1,12 +1,13 @@
 ﻿using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
-namespace GlobalX.Coding.Assessment.Sorting.Tests
+
+namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 {
-    [TestClass()]
+    [TestFixture]
     public class QuickSortTests
     {
-        [TestMethod()]
+        [Test]
         public void SortTest()
         {
             var unsorted = new int[] { 10, 8, 1, 6, 6, 5, 2, 9, 8, 7, 3, };

@@ -1,2 +1,8 @@
 language: csharp
 solution: GlobalX.Coding.Assessment.sln
+install:
+  - nuget restore GlobalX.Coding.Assessment.sln
+  - nuget install NUnit.Console -Version 3.10.0 -OutputDirectory testrunner
+script:
+  - msbuild /p:Configuration=Release sGlobalX.Coding.Assessment.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.10.0/tools/nunit3-console.exe ./GlobalX.Coding.Assessment.Sorting.NUnit.Tests/bin/Release/GlobalX.Coding.Assessment.Sorting.NUnit.Tests.dll
