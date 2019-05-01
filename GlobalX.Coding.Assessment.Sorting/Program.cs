@@ -56,9 +56,15 @@ namespace GlobalX.Coding.Assessment.Sorting
             switch (sortMethod)
             {
                 case SortMethod.Enumerable:
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("EnumerableSort\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     sortedNames = EnumerableSort(names);
                     break;
                 case SortMethod.QuickSort:
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine("QuickSort\n");
+                    Console.ForegroundColor = ConsoleColor.White;
                     sortedNames = QuickSort(names);
                     break;
                 default:

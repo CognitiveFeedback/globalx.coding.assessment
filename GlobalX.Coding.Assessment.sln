@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalX.Coding.Assessment.S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{644C3CA7-6215-47B4-BA67-B860BC52FF7F}"
 	ProjectSection(SolutionItems) = preProject
+		globalx.coding.assessment.pdf = globalx.coding.assessment.pdf
 		Tech Spec Document.docx = Tech Spec Document.docx
 	EndProjectSection
 EndProject
