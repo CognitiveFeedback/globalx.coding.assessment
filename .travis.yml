@@ -1,1 +1,2 @@
-language: C Sharp
+language: csharp
+solution: GlobalX.Coding.Assessment.sln
