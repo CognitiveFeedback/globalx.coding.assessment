@@ -10,6 +10,7 @@ namespace GlobalX.Coding.Assessment.Sorting
     {
         None = 0,
         QuickSort = 1,
+
         Enumerable = 2,
     }
 
