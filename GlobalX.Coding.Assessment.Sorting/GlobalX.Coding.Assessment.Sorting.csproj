@@ -45,6 +45,7 @@
     <Compile Include="ArrayNameSorter.cs" />
     <Compile Include="Name.cs" />
     <Compile Include="NameSorter.cs" />
+    <Compile Include="NameSorterFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickNameSorter.cs" />

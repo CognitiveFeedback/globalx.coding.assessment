@@ -29,23 +29,15 @@ namespace GlobalX.Coding.Assessment.Sorting
             {
                 var filename = args[0];
                 var sortMethod = GetSortMethod(args);
-                NameSorter nameSorter = null;
+
                 //Console.ForegroundColor = ConsoleColor.Cyan;
                 //Console.WriteLine($"{sortMethod}\n");
                 //Console.ForegroundColor = ConsoleColor.White;
-                switch (sortMethod)
-                {
-                    case SortMethod.ArraySort:
-                        nameSorter = new ArrayNameSorter();
-                        break;
-                    case SortMethod.QuickSort:
-                        nameSorter = new QuickNameSorter();
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException($"sortMethod: {sortMethod}");
-                }                
-                nameSorter.MainMethod(filename);
 
+                var nameSorter = NameSorterFactory.Create(sortMethod);
+                nameSorter.LoadNames(filename);
+                nameSorter.Sort();
+                nameSorter.WriteOutput();
             }
             catch (Exception ex)
             {

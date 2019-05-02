@@ -8,27 +8,17 @@ namespace GlobalX.Coding.Assessment.Sorting
 {
     public abstract class NameSorter
     {
-        public void MainMethod(string filename)
+        protected Name[] names = null;
+        protected Stopwatch sw = new Stopwatch();
+
+        public void LoadNames(string filename)
         {
             if (!File.Exists(filename))
             {
                 FileNotFound();
                 return;
             }
-
-            var names = GetNames(filename);
-
-            var sw = new Stopwatch();
-            sw.Start();
-
-            Sort(names);
-
-            sw.Stop();
-            WriteList(names);
-
-            //Console.ForegroundColor = ConsoleColor.Yellow;
-            //Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
-            //Console.ForegroundColor = ConsoleColor.White;
+            names = GetNames(filename);
         }
 
         private void FileNotFound()
@@ -46,15 +36,18 @@ namespace GlobalX.Coding.Assessment.Sorting
             return result;
         }
 
-        private void WriteList(Name[] lines)
+        public void WriteOutput()
         {
-            foreach (var line in lines)
+            foreach (var name in names)
             {
-                Console.WriteLine(line);
+                Console.WriteLine(name);
             }
-            File.WriteAllLines("sorted-names-list.txt", lines.Select(a => a.ToString()).ToArray());
+            File.WriteAllLines("sorted-names-list.txt", names.Select(a => a.ToString()).ToArray());
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+            //Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
+            //Console.ForegroundColor = ConsoleColor.White;
         }
 
-        public abstract void Sort(Name[] names);
+        public abstract void Sort();
     }
 }
