@@ -8,10 +8,9 @@ namespace GlobalX.Coding.Assessment.Sorting
 {
     public class QuickNameSorter : NameSorter
     {
-        public override Name[] Sort(Name[] names)
+        public override void Sort(Name[] names)
         {
-            var sortedNames = QuickSort<Name>.Sort(names);
-            return sortedNames;
+            QuickSort<Name>.Sort(names);
         }
     }
 }

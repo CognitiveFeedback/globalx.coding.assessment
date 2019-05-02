@@ -18,14 +18,13 @@ namespace GlobalX.Coding.Assessment.Sorting
 
             var names = GetNames(filename);
 
-            IEnumerable<Name> sortedNames = null;
             var sw = new Stopwatch();
             sw.Start();
 
-            sortedNames = Sort(names);
+            Sort(names);
 
             sw.Stop();
-            WriteList(sortedNames);
+            WriteList(names);
 
             //Console.ForegroundColor = ConsoleColor.Yellow;
             //Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
@@ -47,7 +46,7 @@ namespace GlobalX.Coding.Assessment.Sorting
             return result;
         }
 
-        private void WriteList(IEnumerable<Name> lines)
+        private void WriteList(Name[] lines)
         {
             foreach (var line in lines)
             {
@@ -56,6 +55,6 @@ namespace GlobalX.Coding.Assessment.Sorting
             File.WriteAllLines("sorted-names-list.txt", lines.Select(a => a.ToString()).ToArray());
         }
 
-        public abstract Name[] Sort(Name[] names);
+        public abstract void Sort(Name[] names);
     }
 }

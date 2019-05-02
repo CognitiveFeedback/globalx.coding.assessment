@@ -8,10 +8,9 @@ namespace GlobalX.Coding.Assessment.Sorting
 {
     public class ArrayNameSorter : NameSorter
     {
-        public override Name[] Sort(Name[] names)
+        public override void Sort(Name[] names)
         {
             Array.Sort(names);
-            return names;
         }
     }
 }
