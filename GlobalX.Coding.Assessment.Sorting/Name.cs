@@ -8,15 +8,14 @@ namespace GlobalX.Coding.Assessment.Sorting
         private string[] parts;
         public Name(string fullName)
         {
-            RegexOptions options = RegexOptions.None;
-            Regex regex = new Regex("[ ]{2,}", options);
+            Regex regex = new Regex("[ ]{2,}", RegexOptions.Compiled);
             fullName = regex.Replace(fullName, " ");
 
             FullName = fullName;
             parts = FullName.Split();
             if (parts.Length > 4 || parts.Length < 2)
             {
-                throw new ArgumentException("Name must consist of at least one and at most three given names, plus a family name.");
+                throw new ArgumentException("Full name must consist of at least one and at most three given names followed by a family name.");
             }
         }
 
