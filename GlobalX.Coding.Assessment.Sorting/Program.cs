@@ -6,13 +6,6 @@ using System.Linq;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
-    public enum SortMethod
-    {
-        None = 0,
-        QuickSort = 1,
-        ArraySort = 2,
-    }
-
     public class Program
     {        
         private static void Main(string[] args)

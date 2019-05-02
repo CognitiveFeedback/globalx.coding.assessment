@@ -42,14 +42,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArrayNameSorter.cs" />
-    <Compile Include="Name.cs" />
-    <Compile Include="NameSorter.cs" />
-    <Compile Include="NameSorterFactory.cs" />
+    <Compile Include="NameSorter\ArrayNameSorter.cs" />
+    <Compile Include="Models\Name.cs" />
+    <Compile Include="NameSorter\NameSorter.cs" />
+    <Compile Include="NameSorter\NameSorterFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuickNameSorter.cs" />
+    <Compile Include="NameSorter\QuickNameSorter.cs" />
     <Compile Include="QuickSort.cs" />
+    <Compile Include="NameSorter\SortMethod.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
