@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlobalX.Coding.Assessment.Sorting.Models;
 
-namespace GlobalX.Coding.Assessment.Sorting
+namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 {
     public class QuickNameSorter : NameSorter
     {

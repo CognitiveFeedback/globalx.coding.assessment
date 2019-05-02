@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace GlobalX.Coding.Assessment.Sorting
+namespace GlobalX.Coding.Assessment.Sorting.Models
 {
-    public class Name : IComparable<Name>, IComparable
+    public class Name : IComparable<Name>
     {
         private string[] parts;
         public Name(string fullName)
@@ -67,11 +67,6 @@ namespace GlobalX.Coding.Assessment.Sorting
         public int CompareTo(Name other)
         {
             return string.Compare(ToOrderedSpelling(), other.ToOrderedSpelling());
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo(obj as Name);
         }
 
         public string ToOrderedSpelling()

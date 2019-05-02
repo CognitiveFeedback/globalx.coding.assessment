@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using GlobalX.Coding.Assessment.Sorting.Models;
+using NUnit.Framework;
 using System;
 
 namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests

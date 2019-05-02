@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using GlobalX.Coding.Assessment.Sorting.Models;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
-namespace GlobalX.Coding.Assessment.Sorting
+namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 {
     public abstract class NameSorter
     {
