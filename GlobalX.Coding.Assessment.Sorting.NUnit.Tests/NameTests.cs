@@ -40,5 +40,16 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 
             Assert.AreEqual(target, 1);
         }
+
+        [Test]
+        public void Name_CompareTo_Multiple_Spaces()
+        {
+            var name1 = new Name("Simon LeServe");
+            var name2 = new Name("Simon     LeServe");
+
+            var target = name1.CompareTo(name2);
+
+            Assert.AreEqual(target, 0);
+        }
     }
 }

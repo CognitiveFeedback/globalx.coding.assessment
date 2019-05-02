@@ -1,24 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
-    public class Name : IComparable<Name>
+    public class Name : IComparable<Name>, IComparable
     {
-        private string fullName = string.Empty;
         private string[] parts;
         public Name(string fullName)
         {
-            this.fullName = fullName;
-            this.parts = fullName.Split();
+            RegexOptions options = RegexOptions.None;
+            Regex regex = new Regex("[ ]{2,}", options);
+            fullName = regex.Replace(fullName, " ");
+
+            FullName = fullName;
+            parts = FullName.Split();
             if (parts.Length > 4 || parts.Length < 2)
             {
                 throw new ArgumentException("Name must consist of at least one and at most three given names, plus a family name.");
             }
         }
+
+        public string FullName { get; set; }
+
         public string FamilyName
         {
             get
@@ -64,7 +67,12 @@ namespace GlobalX.Coding.Assessment.Sorting
 
         public int CompareTo(Name other)
         {
-            return string.Compare(this.ToOrderedSpelling(), other.ToOrderedSpelling());
+            return string.Compare(ToOrderedSpelling(), other.ToOrderedSpelling());
+        }
+
+        public int CompareTo(object obj)
+        {
+            return CompareTo(obj as Name);
         }
 
         public string ToOrderedSpelling()

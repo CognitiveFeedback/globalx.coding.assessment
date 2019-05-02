@@ -10,26 +10,42 @@ namespace GlobalX.Coding.Assessment.Sorting
     {
         None = 0,
         QuickSort = 1,
-
-        Enumerable = 2,
+        ArraySort = 2,
     }
 
     public class Program
-    {
-        private static Process process = null;
+    {        
         private static void Main(string[] args)
         {
-            if (args.Length < 1 || args.Length > 2)
+            if (!IsCommandLineValid(args))
             {
                 PrintUsage();
+                Console.WriteLine("\n\nPress any key to exit.");
+                Console.ReadKey();
                 return;
             }
 
             try
             {
                 var filename = args[0];
-                var method = args.Length == 2 && args[1].ToLower() == "quicksort" ? SortMethod.QuickSort : SortMethod.Enumerable;
-                MainMethod(filename, method);
+                var sortMethod = GetSortMethod(args);
+                NameSorter nameSorter = null;
+                //Console.ForegroundColor = ConsoleColor.Cyan;
+                //Console.WriteLine($"{sortMethod}\n");
+                //Console.ForegroundColor = ConsoleColor.White;
+                switch (sortMethod)
+                {
+                    case SortMethod.ArraySort:
+                        nameSorter = new ArrayNameSorter();
+                        break;
+                    case SortMethod.QuickSort:
+                        nameSorter = new QuickNameSorter();
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException($"sortMethod: {sortMethod}");
+                }                
+                nameSorter.MainMethod(filename);
+
             }
             catch (Exception ex)
             {
@@ -39,89 +55,45 @@ namespace GlobalX.Coding.Assessment.Sorting
             }
 
             Console.WriteLine("\n\nPress any key to exit.");
-            Console.ReadKey();
-            process.Kill();
+            Console.ReadKey();            
         }
 
-        private static void MainMethod(string filename, SortMethod sortMethod)
+        private static SortMethod GetSortMethod(string[] args)
         {
-            if (!File.Exists(filename))
+            if (args.Length == 2 && args[1].ToLower() == "quicksort")
             {
-                FileNotFound();
-                return;
+                return SortMethod.QuickSort;
             }
-
-            var names = GetNames(filename);
-
-            IEnumerable<Name> sortedNames = null;
-            switch (sortMethod)
+            if (args.Length == 2 && args[1].ToLower() == "arraysort")
             {
-                case SortMethod.Enumerable:
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("EnumerableSort\n");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    sortedNames = EnumerableSort(names);
-                    break;
-                case SortMethod.QuickSort:
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.WriteLine("QuickSort\n");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    sortedNames = QuickSort(names);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException($"sortMethod: {sortMethod}");
+                return SortMethod.ArraySort;
             }
-
-            WriteList(sortedNames);
+            return SortMethod.ArraySort;
         }
 
-        private static void FileNotFound()
+        private static bool IsCommandLineValid(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nFile Not Found");
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
-        }
-
-        private static IEnumerable<Name> EnumerableSort(IEnumerable<Name> names)
-        {
-            var sortedNames = QuickSort<Name>.Sort(names);
-            return sortedNames;
-        }
-
-        public static IEnumerable<Name> QuickSort(IEnumerable<Name> names)
-        {
-            var sortedNames = names.ToList();
-            sortedNames.Sort();
-            return sortedNames;
-        }
-
-        private static List<Name> GetNames(string filename)
-        {
-            var names = File.ReadAllLines(filename);
-            var result = new List<Name>();
-            foreach (var name in names)
+            if (args.Length < 1)
             {
-                var item = new Name(name);
-                result.Add(item);
+                return false;
             }
-            return result;
-        }
-
-        private static void WriteList(IEnumerable<Name> lines)
-        {
-            foreach (var line in lines)
+            if (args.Length > 2) {
+                return false;
+            }
+            if(args.Length == 2 && args[1].ToLower() != "quicksort" && args[1].ToLower() != "arraysort")
             {
-                Console.WriteLine(line);
+                return false;
             }
-            File.WriteAllLines("sorted-names-list.txt", lines.Select(a => a.ToString()).ToArray());
-            process = Process.Start(new ProcessStartInfo() { FileName = "sorted-names-list.txt" });
-        }
+            return true;
+        }        
 
         private static void PrintUsage()
         {
             Console.WriteLine("\nUSAGE");
-            Console.WriteLine("\tname-sorter [filename]");
+            Console.WriteLine("\tname-sorter <filename> [<algorithm>]");
+            Console.WriteLine("\nOPTIONAL ALGORITHMS");
+            Console.WriteLine("\tQuickSort\tQuickSort algorithm");
+            Console.WriteLine("\tArraySort\t.NET Array Sort algorithm (this is the default algorithm");
             Console.WriteLine("");
         }
     }

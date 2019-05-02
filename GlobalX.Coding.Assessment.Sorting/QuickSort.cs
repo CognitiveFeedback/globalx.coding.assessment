@@ -6,11 +6,10 @@ namespace GlobalX.Coding.Assessment.Sorting
 {
     public static class QuickSort<T> where T : IComparable<T>
     {
-        public static IEnumerable<T> Sort(IEnumerable<T> list)
+        public static T[] Sort(T[] list)
         {
-            var arr = list.ToArray();
-            Sort(arr, 0, list.Count() - 1);
-            return arr.ToList();
+            Sort(list, 0, list.Length - 1);
+            return list;
         }
 
         private static void Sort(T[] A, int left, int right)
