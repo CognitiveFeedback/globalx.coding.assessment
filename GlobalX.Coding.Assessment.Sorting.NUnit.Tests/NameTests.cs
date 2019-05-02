@@ -11,20 +11,20 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         [Test]
         public void Name_Construction_AurgumentException_1_Name()
         {
-            Assert.Throws<ArgumentException>(() => new Name("Simon"));
+            Assert.Throws<ArgumentException>(() => new OrderedName("Simon"));
         }
 
         [Test]
         public void Name_Construction_AurgumentException_5_Names()
         {
-            Assert.Throws<ArgumentException>(() => new Name("Simon David Stephen Porcella Le Serve"));
+            Assert.Throws<ArgumentException>(() => new OrderedName("Simon David Stephen Porcella Le Serve"));
         }
 
         [Test]
         public void Name_CompareTo_2_And_3_Names()
         {
-            var name1 = new Name("Simon LeServe");
-            var name2 = new Name("Simon David LeServe");
+            var name1 = new OrderedName("Simon LeServe");
+            var name2 = new OrderedName("Simon David LeServe");
 
             var target = name1.CompareTo(name2);
 
@@ -34,8 +34,8 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         [Test]
         public void Name_CompareTo_Different_Given_Names()
         {
-            var name1 = new Name("Simon LeServe");
-            var name2 = new Name("Sally LeServe");
+            var name1 = new OrderedName("Simon LeServe");
+            var name2 = new OrderedName("Sally LeServe");
 
             var target = name1.CompareTo(name2);
 
@@ -45,8 +45,8 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         [Test]
         public void Name_CompareTo_Multiple_Spaces()
         {
-            var name1 = new Name("Simon LeServe");
-            var name2 = new Name("Simon     LeServe");
+            var name1 = new OrderedName("Simon LeServe");
+            var name2 = new OrderedName("Simon     LeServe");
 
             var target = name1.CompareTo(name2);
 

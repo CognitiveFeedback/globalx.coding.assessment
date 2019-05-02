@@ -10,11 +10,11 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         [Test]
         public void QuickSortTest()
         {
-            var unsorted = new int[] { 10, 8, 1, 6, 6, 5, 2, 9, 8, 7, 3, };
+            var list = new int[] { 10, 8, 1, 6, 6, 5, 2, 9, 8, 7, 3, };
 
-            var sorted = QuickSort<int>.Sort(unsorted);
+            QuickSort<int>.Sort(list);
 
-            Assert.IsTrue(sorted.SequenceEqual(new int[] { 1, 2, 3, 5, 6, 6, 7, 8, 8, 9, 10, }));
+            Assert.IsTrue(list.SequenceEqual(new int[] { 1, 2, 3, 5, 6, 6, 7, 8, 8, 9, 10, }));
         }
     }
 }

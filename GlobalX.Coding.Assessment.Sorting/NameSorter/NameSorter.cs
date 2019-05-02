@@ -6,9 +6,12 @@ using System.Linq;
 
 namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 {
+    /// <summary>
+    /// Abstract class defining loading and output lgic and an abstract method for Sort
+    /// </summary>
     public abstract class NameSorter
     {
-        protected Name[] names = null;
+        protected OrderedName[] names = null;
         protected Stopwatch sw = new Stopwatch();
 
         public void LoadNames(string filename)
@@ -29,14 +32,17 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             Console.ForegroundColor = ConsoleColor.White;
         }
 
-        private static Name[] GetNames(string filename)
+        private static OrderedName[] GetNames(string filename)
         {
             var names = File.ReadAllLines(filename);
-            var result = names.Select(a => new Name(a)).ToArray();
+            var result = names.Select(a => new OrderedName(a)).ToArray();
             return result;
         }
 
-        public void WriteOutput()
+        /// <summary>
+        /// Output the list of names in this case to the console and an output file.
+        /// </summary>
+        public virtual void WriteOutput()
         {
             foreach (var name in names)
             {

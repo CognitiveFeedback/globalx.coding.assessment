@@ -2,13 +2,20 @@
 
 namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 {
+    /// <summary>
+    /// Quick sort implementation of the abstract NameSorter class
+    /// </summary>
+    /// 
     public class QuickNameSorter : NameSorter
     {
+        /// <summary>
+        /// Executes a Quick Sort on the list of names
+        /// </summary>
         public override void Sort()
         {
             sw.Reset();
             sw.Start();
-            QuickSort<Name>.Sort(names);
+            QuickSort<OrderedName>.Sort(names);
             sw.Stop();
         }
     }

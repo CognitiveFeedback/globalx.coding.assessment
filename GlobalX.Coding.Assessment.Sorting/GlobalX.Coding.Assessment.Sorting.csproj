@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NameSorter\ArrayNameSorter.cs" />
-    <Compile Include="Models\Name.cs" />
+    <Compile Include="Models\OrderedName.cs" />
     <Compile Include="NameSorter\NameSorter.cs" />
     <Compile Include="NameSorter\NameSorterFactory.cs" />
     <Compile Include="Program.cs" />

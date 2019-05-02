@@ -4,12 +4,19 @@ using System.Linq;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
+    /// <summary>
+    /// Static class implementing the class Quick Sort algorithm
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public static class QuickSort<T> where T : IComparable<T>
     {
-        public static T[] Sort(T[] list)
+        /// <summary>
+        /// Sort an array of orderable items using the classic Quick Sort algorithm
+        /// </summary>
+        /// <param name="list"></param>
+        public static void Sort(T[] list)
         {
             Sort(list, 0, list.Length - 1);
-            return list;
         }
 
         private static void Sort(T[] A, int left, int right)
