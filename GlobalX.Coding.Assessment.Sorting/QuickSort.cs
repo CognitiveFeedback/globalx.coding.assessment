@@ -3,7 +3,7 @@
 namespace GlobalX.Coding.Assessment.Sorting
 {
     /// <summary>
-    /// Static class implementing the class Quick Sort algorithm
+    /// Static class implementing the classic Quick Sort algorithm
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public static class QuickSort<T> where T : IComparable<T>
@@ -11,7 +11,7 @@ namespace GlobalX.Coding.Assessment.Sorting
         /// <summary>
         /// Sort an array of orderable items using the classic Quick Sort algorithm
         /// </summary>
-        /// <param name="list"></param>
+        /// <param name="list">The array to be sorted</param>
         public static void Sort(T[] list)
         {
             Sort(list, 0, list.Length - 1);

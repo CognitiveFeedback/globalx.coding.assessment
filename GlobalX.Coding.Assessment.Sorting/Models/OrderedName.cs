@@ -9,7 +9,9 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
     /// </summary>
     public class OrderedName : IComparable<OrderedName>
     {
+        /// The name parts defined at construction given a full name then split on space delimiters
         private string[] parts;
+
         public OrderedName(string fullName)
         {
             // Replace multiple spaces with a single space so that the proceding split() operation works correctly on space delimited names
@@ -52,7 +54,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         }
 
         /// <summary>
-        /// The second given name specified in the full name given on construction, if one does not exist then return an empty string
+        /// The second given name specified in the full name given on construction, if one does not exist then returns an empty string
         /// </summary>
         public string SecondName
         {
@@ -70,7 +72,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         }
 
         /// <summary>
-        /// The third given name specified in the full name given on construction, if one does not exist then return an empty string
+        /// The third given name specified in the full name given on construction, if one does not exist then returns an empty string
         /// </summary>
         public string ThirdName
         {
@@ -93,8 +95,8 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// If the two operands are alphabetically equal then return 0
         /// If the second operand alphabetically precedes the first operand then return 1
         /// </summary>
-        /// <param name="other"></param>
-        /// <returns></returns>
+        /// <param name="other">An instance of OrderedName to be compared with</param>
+        /// <returns>An integer indicating the ordering of the two operads: -1, 0 or 1</returns>
         public int CompareTo(OrderedName other)
         {
             return string.Compare(ToOrderedSpelling(), other.ToOrderedSpelling(), StringComparison.InvariantCultureIgnoreCase);
@@ -104,7 +106,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// The alphabetical ordering definition for this class.
         /// Order by family name then each of the given names in order.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A spelling defining the alphabetical ordering of an OrderedName instance</returns>
         public string ToOrderedSpelling()
         {
             return $"{FamilyName}{GivenName}{SecondName}{ThirdName}";

@@ -10,8 +10,8 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         /// <summary>
         /// Careate an instance of a type derived from NameSorter
         /// </summary>
-        /// <param name="sortMethod"></param>
-        /// <returns></returns>
+        /// <param name="sortMethod">An enum describing type of sorting algorithm to be used</param>
+        /// <returns>An instance of a type derived from NameSorter</returns>
         public static NameSorter Create(SortMethod sortMethod)
         {
             NameSorter sorter = null;
