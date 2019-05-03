@@ -1,5 +1,7 @@
 ﻿using GlobalX.Coding.Assessment.Sorting.Models;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Linq;
 namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 {
     /// <summary>
-    /// Abstract class defining loading and output lgic and an abstract method for Sort
+    /// Abstract class defining loading of name from a file and resulting output to a file
     /// </summary>
     public abstract class NameSorter
     {
@@ -79,8 +81,14 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             }
         }
 
+        /// <summary>
+        /// Sorts the array of OrderedName items
+        /// </summary>
         public abstract void SortNames();
 
+        /// <summary>
+        /// Sorts the array of OrderedName item and measures the execution time
+        /// </summary>
         public void TimedSort()
         {
             sw.Reset();
