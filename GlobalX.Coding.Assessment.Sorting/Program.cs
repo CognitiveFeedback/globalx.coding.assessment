@@ -20,9 +20,11 @@ namespace GlobalX.Coding.Assessment.Sorting
                 var filename = args[0];
                 var sortMethod = GetSortMethod(args);
 
-                //Console.ForegroundColor = ConsoleColor.Cyan;
-                //Console.WriteLine($"{sortMethod}\n");
-                //Console.ForegroundColor = ConsoleColor.White;
+#if DEBUG
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"{sortMethod}\n");
+                Console.ForegroundColor = ConsoleColor.White; 
+#endif
 
                 var nameSorter = NameSorterFactory.Create(sortMethod);
                 nameSorter.LoadNames(filename);
@@ -42,11 +44,11 @@ namespace GlobalX.Coding.Assessment.Sorting
 
         private static SortMethod GetSortMethod(string[] args)
         {
-            if (args.Length == 2 && args[1].ToLower() == "quicksort")
+            if (args.Length == 2 && args[1].Equals("QuickSort", StringComparison.InvariantCultureIgnoreCase))
             {
                 return SortMethod.QuickSort;
             }
-            if (args.Length == 2 && args[1].ToLower() == "arraysort")
+            if (args.Length == 2 && args[1].Equals("ArraySort", StringComparison.InvariantCultureIgnoreCase))
             {
                 return SortMethod.ArraySort;
             }
@@ -63,7 +65,9 @@ namespace GlobalX.Coding.Assessment.Sorting
             {
                 return false;
             }
-            if (args.Length == 2 && args[1].ToLower() != "quicksort" && args[1].ToLower() != "arraysort")
+            if (args.Length == 2
+                && !args[1].Equals("QuickSort", StringComparison.InvariantCultureIgnoreCase)
+                && !args[1].Equals("ArraySort", StringComparison.InvariantCultureIgnoreCase))
             {
                 return false;
             }
@@ -74,9 +78,9 @@ namespace GlobalX.Coding.Assessment.Sorting
         {
             Console.WriteLine("\nUSAGE");
             Console.WriteLine("\tname-sorter <filename> [<algorithm>]");
-            Console.WriteLine("\nOPTIONAL ALGORITHMS");
+            Console.WriteLine("\nOPTIONAL SORTING ALGORITHMS");
             Console.WriteLine("\tQuickSort\tQuickSort algorithm");
-            Console.WriteLine("\tArraySort\t.NET Array Sort algorithm (this is the default algorithm");
+            Console.WriteLine("\tArraySort\t.NET Array Sort algorithm (this is the default sorting algorithm)");
             Console.WriteLine("");
         }
     }
