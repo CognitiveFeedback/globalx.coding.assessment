@@ -55,6 +55,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
                 Console.WriteLine(name);
             }
             File.WriteAllLines("sorted-names-list.txt", names.Select(a => a.ToString()).ToArray());
+
             //Console.ForegroundColor = ConsoleColor.Yellow;
             //Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
             //Console.ForegroundColor = ConsoleColor.White;
