@@ -71,7 +71,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 
             var target = name1.ToOrderedSpelling();
 
-            Assert.AreEqual(target, "LeServeSimon");
+            Assert.AreEqual(target, "LeServe Simon");
         }
 
         [Test]
@@ -81,7 +81,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 
             var target = name1.ToOrderedSpelling();
 
-            Assert.AreEqual(target, "LeServeSimonDavid");
+            Assert.AreEqual(target, "LeServe Simon David");
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 
             var target = name1.ToOrderedSpelling();
 
-            Assert.AreEqual(target, "LeServeSimonDavidStephan");
+            Assert.AreEqual(target, "LeServe Simon David Stephan");
         }
     }
 }
