@@ -11,7 +11,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
     /// <summary>
     /// Abstract class defining loading of name from a file and resulting output to a file
     /// </summary>
-    public abstract class NameSorter
+    public abstract class NameSorter : IEnumerable
     {
         protected OrderedName[] names = null;
         protected Stopwatch sw = new Stopwatch();
@@ -95,6 +95,11 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             sw.Start();
             SortNames();
             sw.Stop();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return names.GetEnumerator();
         }
     }
 }
