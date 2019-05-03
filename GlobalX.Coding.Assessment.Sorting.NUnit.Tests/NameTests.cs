@@ -43,6 +43,17 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         }
 
         [Test]
+        public void Name_CompareTo_Slightly_Different_Names()
+        {
+            var name1 = new OrderedName("Simon David Stephen LeServe");
+            var name2 = new OrderedName("Simon David Stephan LeServe");
+
+            var target = name1.CompareTo(name2);
+
+            Assert.AreEqual(target, 1);
+        }
+
+        [Test]
         public void Name_CompareTo_Multiple_Spaces()
         {
             var name1 = new OrderedName("Simon LeServe");
