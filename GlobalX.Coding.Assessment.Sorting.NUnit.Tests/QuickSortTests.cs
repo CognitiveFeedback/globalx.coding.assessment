@@ -8,7 +8,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
     public class QuickSortTests
     {
         [Test]
-        public void QuickSortTest()
+        public void Can_Sort_Correctly()
         {
             var list = new int[] { 10, 8, 1, 6, 6, 5, 2, 9, 8, 7, 3, };
 

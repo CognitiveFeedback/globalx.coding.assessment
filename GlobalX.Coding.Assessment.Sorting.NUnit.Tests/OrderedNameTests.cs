@@ -6,22 +6,22 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 {
 
     [TestFixture]
-    public class NameTests
+    public class OrderedNameTests
     {
         [Test]
-        public void Name_Construction_AurgumentException_1_Name()
+        public void Construction_AurgumentException_1_Name()
         {
             Assert.Throws<ArgumentException>(() => new OrderedName("Simon"));
         }
 
         [Test]
-        public void Name_Construction_AurgumentException_5_Names()
+        public void onstruction_AurgumentException_5_Names()
         {
             Assert.Throws<ArgumentException>(() => new OrderedName("Simon David Stephen Porcella Le Serve"));
         }
 
         [Test]
-        public void Name_CompareTo_2_And_3_Names()
+        public void CompareTo_2_And_3_Names()
         {
             var name1 = new OrderedName("Simon LeServe");
             var name2 = new OrderedName("Simon David LeServe");
@@ -32,7 +32,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         }
 
         [Test]
-        public void Name_CompareTo_Different_Given_Names()
+        public void CompareTo_Different_Given_Names()
         {
             var name1 = new OrderedName("Simon LeServe");
             var name2 = new OrderedName("Sally LeServe");
@@ -43,7 +43,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         }
 
         [Test]
-        public void Name_CompareTo_Slightly_Different_Names()
+        public void CompareTo_Slightly_Different_Names()
         {
             var name1 = new OrderedName("Simon David Stephen LeServe");
             var name2 = new OrderedName("Simon David Stephan LeServe");
@@ -54,7 +54,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         }
 
         [Test]
-        public void Name_CompareTo_Multiple_Spaces()
+        public void CompareTo_Multiple_Spaces()
         {
             var name1 = new OrderedName("Simon LeServe");
             var name2 = new OrderedName("Simon     LeServe");
