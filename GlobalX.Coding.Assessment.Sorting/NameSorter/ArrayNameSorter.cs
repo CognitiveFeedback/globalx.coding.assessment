@@ -10,12 +10,9 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         /// <summary>
         /// Executes an Array Sort on the list of names
         /// </summary>
-        public override void Sort()
+        public override void SortNames()
         {
-            sw.Reset();
-            sw.Start();
             Array.Sort(names);
-            sw.Stop();
         }
     }
 }

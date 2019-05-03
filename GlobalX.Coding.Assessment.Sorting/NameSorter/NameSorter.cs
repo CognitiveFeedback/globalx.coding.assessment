@@ -55,14 +55,38 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
                 Console.WriteLine(name);
             }
             File.WriteAllLines("sorted-names-list.txt", names.Select(a => a.ToString()).ToArray());
-
-#if DEBUG
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
-            Console.ForegroundColor = ConsoleColor.White;
-#endif
         }
 
-        public abstract void Sort();
+        /// <summary>
+        /// Elapsed time in milliseconds to execute the Sort
+        /// </summary>
+        public long ElapsedMilliseconds
+        {
+            get
+            {
+                return sw.ElapsedMilliseconds;
+            }
+        }
+
+        /// <summary>
+        /// Length of the names array
+        /// </summary>
+        public int Length
+        {
+            get
+            {
+                return names.Length;
+            }
+        }
+
+        public abstract void SortNames();
+
+        public void Sort()
+        {
+            sw.Reset();
+            sw.Start();
+            SortNames();
+            sw.Stop();
+        }
     }
 }

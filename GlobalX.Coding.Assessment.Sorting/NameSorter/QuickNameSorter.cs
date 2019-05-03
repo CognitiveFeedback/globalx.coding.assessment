@@ -10,12 +10,9 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         /// <summary>
         /// Executes a Quick Sort on the list of names
         /// </summary>
-        public override void Sort()
+        public override void SortNames()
         {
-            sw.Reset();
-            sw.Start();
             QuickSort<OrderedName>.Sort(names);
-            sw.Stop();
         }
     }
 }

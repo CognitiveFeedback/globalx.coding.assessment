@@ -20,16 +20,17 @@ namespace GlobalX.Coding.Assessment.Sorting
                 var filename = args[0];
                 var sortMethod = GetSortMethod(args);
 
-#if DEBUG
-                Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine($"{sortMethod}\n");
-                Console.ForegroundColor = ConsoleColor.White; 
-#endif
-
                 var nameSorter = NameSorterFactory.Create(sortMethod);
                 nameSorter.LoadNames(filename);
                 nameSorter.Sort();
                 nameSorter.WriteOutput();
+
+#if DEBUG
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"\nAlgorithm: {sortMethod}");
+                Console.WriteLine($"Time taken to sort {nameSorter.Length} itmes: {nameSorter.ElapsedMilliseconds} ms");
+                Console.ForegroundColor = ConsoleColor.White;
+#endif
             }
             catch (Exception ex)
             {
