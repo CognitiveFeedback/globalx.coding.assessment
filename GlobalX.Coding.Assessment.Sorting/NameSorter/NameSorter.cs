@@ -60,7 +60,6 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"\nTime taken {sw.ElapsedMilliseconds} ms");
             Console.ForegroundColor = ConsoleColor.White;
-
 #endif
         }
 
