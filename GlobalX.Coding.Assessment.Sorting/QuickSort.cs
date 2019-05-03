@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
@@ -44,7 +42,7 @@ namespace GlobalX.Coding.Assessment.Sorting
 
             var end = left;
 
-            var pivot = A[right];    // choose last one to pivot, easy to code
+            var pivot = A[right];
             for (int i = left; i < right; i++)
             {
                 if (A[i].CompareTo(pivot) < 0)
