@@ -15,7 +15,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
         }
 
         [Test]
-        public void onstruction_AurgumentException_5_Names()
+        public void Construction_AurgumentException_5_Names()
         {
             Assert.Throws<ArgumentException>(() => new OrderedName("Simon David Stephen Porcella Le Serve"));
         }
