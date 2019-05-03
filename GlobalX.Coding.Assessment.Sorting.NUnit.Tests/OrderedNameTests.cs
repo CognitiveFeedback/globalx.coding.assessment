@@ -63,5 +63,35 @@ namespace GlobalX.Coding.Assessment.Sorting.NUnit.Tests
 
             Assert.AreEqual(target, 0);
         }
+
+        [Test]
+        public void ToOrderedSpelling_Is_Correct_2_Names()
+        {
+            var name1 = new OrderedName("Simon LeServe");
+
+            var target = name1.ToOrderedSpelling();
+
+            Assert.AreEqual(target, "LeServeSimon");
+        }
+
+        [Test]
+        public void ToOrderedSpelling_Is_Correct_3_Names()
+        {
+            var name1 = new OrderedName("Simon David LeServe");
+
+            var target = name1.ToOrderedSpelling();
+
+            Assert.AreEqual(target, "LeServeSimonDavid");
+        }
+
+        [Test]
+        public void ToOrderedSpelling_Is_Correct_4_Names()
+        {
+            var name1 = new OrderedName("Simon David Stephan LeServe");
+
+            var target = name1.ToOrderedSpelling();
+
+            Assert.AreEqual(target, "LeServeSimonDavidStephan");
+        }
     }
 }

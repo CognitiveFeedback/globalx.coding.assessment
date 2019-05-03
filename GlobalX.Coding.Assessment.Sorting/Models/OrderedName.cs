@@ -39,7 +39,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
                 return parts[parts.Length - 1];
             }
         }
-        
+
         /// <summary>
         /// The first name specified in the full name given on construction
         /// </summary>
@@ -97,7 +97,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <returns></returns>
         public int CompareTo(OrderedName other)
         {
-            return string.Compare(ToOrderedSpelling(), other.ToOrderedSpelling());
+            return string.Compare(ToOrderedSpelling(), other.ToOrderedSpelling(), StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <returns></returns>
         public string ToOrderedSpelling()
         {
-            return $"{FamilyName}{GivenName}{SecondName}{ThirdName}".ToLower();
+            return $"{FamilyName}{GivenName}{SecondName}{ThirdName}";
         }
 
         public override string ToString()
