@@ -14,22 +14,28 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         protected OrderedName[] names = null;
         protected Stopwatch sw = new Stopwatch();
 
-        public void LoadNames(string filename)
+        /// <summary>
+        /// Load name from the file given by filename
+        /// </summary>
+        /// <param name="filename">full path to a file containing the correct format for names</param>
+        public virtual void LoadNames(string filename)
         {
             if (!File.Exists(filename))
             {
-                FileNotFound();
-                return;
+                throw new FileNotFoundException($"The file {filename} cannot be found");
             }
-            names = GetNames(filename);
-        }
-
-        private void FileNotFound()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\nFile Not Found");
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.White;
+            try
+            {
+                names = GetNames(filename);
+            }
+            catch (ArgumentException)
+            {
+                throw new Exception("The file is not correctly formatted. The file must only contain a list of full names where each full name consts of 1 to 3 given names followed by a family name.");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Unkown error occured.");
+            }
         }
 
         private static OrderedName[] GetNames(string filename)

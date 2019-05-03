@@ -1,14 +1,10 @@
 using GlobalX.Coding.Assessment.Sorting.NameSorter;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
     public class Program
-    {        
+    {
         private static void Main(string[] args)
         {
             if (!IsCommandLineValid(args))
@@ -41,7 +37,7 @@ namespace GlobalX.Coding.Assessment.Sorting
             }
 
             Console.WriteLine("\n\nPress any key to exit.");
-            Console.ReadKey();            
+            Console.ReadKey();
         }
 
         private static SortMethod GetSortMethod(string[] args)
@@ -63,15 +59,16 @@ namespace GlobalX.Coding.Assessment.Sorting
             {
                 return false;
             }
-            if (args.Length > 2) {
+            if (args.Length > 2)
+            {
                 return false;
             }
-            if(args.Length == 2 && args[1].ToLower() != "quicksort" && args[1].ToLower() != "arraysort")
+            if (args.Length == 2 && args[1].ToLower() != "quicksort" && args[1].ToLower() != "arraysort")
             {
                 return false;
             }
             return true;
-        }        
+        }
 
         private static void PrintUsage()
         {
