@@ -22,7 +22,7 @@ namespace GlobalX.Coding.Assessment.Sorting
 
                 var nameSorter = NameSorterFactory.Create(sortMethod);
                 nameSorter.LoadNames(filename);
-                nameSorter.Sort();
+                nameSorter.TimedSort();
                 nameSorter.WriteOutput();
 
 #if DEBUG

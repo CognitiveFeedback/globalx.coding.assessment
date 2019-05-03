@@ -81,7 +81,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
 
         public abstract void SortNames();
 
-        public void Sort()
+        public void TimedSort()
         {
             sw.Reset();
             sw.Start();
