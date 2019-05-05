@@ -16,9 +16,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         {
             // Replace multiple spaces with a single space so that the proceding split() operation works correctly on space delimited names
             var regex = new Regex("[ ]{2,}", RegexOptions.Compiled);
-            fullName = regex.Replace(fullName, " ");
-
-            FullName = fullName;
+            FullName = regex.Replace(fullName, " ");
             parts = FullName.Split();
             if (parts.Length > 4 || parts.Length < 2)
             {

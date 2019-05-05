@@ -1,7 +1,6 @@
 ﻿using GlobalX.Coding.Assessment.Sorting.Models;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -30,13 +29,13 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             {
                 names = GetNames(filename);
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
             {
-                throw new Exception("The file is not correctly formatted. The file must only contain a list of full names where each full name consts of 1 to 3 given names followed by a family name.");
+                throw new Exception("The file is incorrectly formatted. The file must only contain a list of full names where each full name consts of 1 to 3 given names followed by a family name.", ex);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw new Exception("Unkown error occured.");
+                throw new Exception("Unkown error occured.", ex);
             }
         }
 
