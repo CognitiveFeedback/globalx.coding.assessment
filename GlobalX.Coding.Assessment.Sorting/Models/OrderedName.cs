@@ -109,7 +109,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <returns>A spelling defining the alphabetical ordering of an OrderedName instance</returns>
         public string ToOrderedSpelling()
         {
-            return $"{FamilyName} {GivenName} {SecondName} {ThirdName}".Trim();
+            return $"{FamilyName} {GivenName} {SecondName} {ThirdName}";
         }
 
         public override string ToString()
