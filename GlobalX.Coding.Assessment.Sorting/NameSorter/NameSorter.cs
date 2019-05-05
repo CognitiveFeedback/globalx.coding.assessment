@@ -96,7 +96,15 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
             sw.Stop();
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public OrderedName this[int index]
+        {
+            get
+            {
+                return names[index];
+            }
+        }
+
+        public IEnumerator GetEnumerator()
         {
             return names.GetEnumerator();
         }
