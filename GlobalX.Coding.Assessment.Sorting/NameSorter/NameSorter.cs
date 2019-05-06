@@ -19,7 +19,7 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         /// Load name from the file given by filename
         /// </summary>
         /// <param name="filename">full path to a file containing the correct format for names</param>
-        public virtual void LoadNames(string filename)
+        public virtual void Load(string filename)
         {
             if (!File.Exists(filename))
             {
@@ -47,15 +47,12 @@ namespace GlobalX.Coding.Assessment.Sorting.NameSorter
         }
 
         /// <summary>
-        /// Output the list of names in this case to the console and an output file.
+        /// Output the list of names in this case to an output file.
         /// </summary>
-        public virtual void WriteOutput()
+        /// <param name="filename">Full path to a file to store an export of the sorted names</param>
+        public virtual void ExportToFile(string filename)
         {
-            foreach (var name in names)
-            {
-                Console.WriteLine(name);
-            }
-            File.WriteAllLines("sorted-names-list.txt", names.Select(a => a.ToString()).ToArray());
+            File.WriteAllLines(filename, names.Select(a => a.ToString()).ToArray());
         }
 
         /// <summary>

@@ -1,10 +1,13 @@
 using GlobalX.Coding.Assessment.Sorting.NameSorter;
 using System;
+using System.Configuration;
 
 namespace GlobalX.Coding.Assessment.Sorting
 {
     public class Program
     {
+        private static string OutputFilename { get; } = ConfigurationManager.AppSettings["OutputFilename"];
+
         private static void Main(string[] args)
         {
             if (!IsCommandLineValid(args))
@@ -21,9 +24,15 @@ namespace GlobalX.Coding.Assessment.Sorting
                 var sortMethod = GetSortMethod(args);
 
                 var nameSorter = NameSorterFactory.Create(sortMethod);
-                nameSorter.LoadNames(filename);
+                nameSorter.Load(filename);
                 nameSorter.TimedSort();
-                nameSorter.WriteOutput();
+                nameSorter.ExportToFile(OutputFilename);
+
+                // Print the list of ordered name to the console
+                foreach (var name in nameSorter)
+                {
+                    Console.WriteLine(name);
+                }
 
 #if DEBUG
                 Console.ForegroundColor = ConsoleColor.Yellow;
