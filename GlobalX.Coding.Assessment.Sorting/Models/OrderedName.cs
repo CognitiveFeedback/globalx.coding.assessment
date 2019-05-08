@@ -54,7 +54,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <summary>
         /// The second given name specified in the full name given on construction, if one does not exist then returns an empty string
         /// </summary>
-        public string SecondName
+        public string SecondGivnName
         {
             get
             {
@@ -72,7 +72,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <summary>
         /// The third given name specified in the full name given on construction, if one does not exist then returns an empty string
         /// </summary>
-        public string ThirdName
+        public string ThirdGivnName
         {
             get
             {
@@ -107,7 +107,7 @@ namespace GlobalX.Coding.Assessment.Sorting.Models
         /// <returns>A spelling defining the alphabetical ordering of an OrderedName instance</returns>
         public string ToOrderedSpelling()
         {
-            return $"{FamilyName} {GivenName} {SecondName} {ThirdName}".Trim();
+            return $"{FamilyName} {GivenName} {SecondGivnName} {ThirdGivnName}".Trim();
         }
 
         public override string ToString()
